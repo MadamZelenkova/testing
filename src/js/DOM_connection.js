@@ -1,14 +1,35 @@
-function showColor(selector) {
-  const image = document.querySelector(selector);
-  image.style.filter = "none";
-}
+import controlCard from "./check.js";
 
-export function applyBlackWhite() {
-  const allImages = document.getElementsByTagName("img");
-  Array.from(allImages).forEach((element) => {
-    element.style.filter = "grayscale(100%)";
-  });
-}
+const cardInput = document.querySelector(".input-field");
+const checkBtn = document.querySelector(".btn");
+const successField = document.querySelector(".success");
+const failureField = document.querySelector(".failure");
+
+checkBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const cardNumber = cardInput.value.split("").map(Number);
+  if (controlCard(cardNumber)) {
+    successField.classList.add("show_answer");
+    cardInput.value = "";
+    applyBlackWhite();
+  } else {
+    failureField.classList.add("show_answer");
+    cardInput.value = "";
+    applyBlackWhite();
+  }
+});
+
+cardInput.addEventListener("input", (e) => {
+  e.preventDefault();
+  hideAnswer();
+  const value = cardInput.value.split("").map(Number);
+
+  if (value.length > 1) {
+    chooseCard(value);
+  } else {
+    applyBlackWhite();
+  }
+});
 
 function chooseCard(value) {
   if (value[0] === 4) {
@@ -32,15 +53,19 @@ function chooseCard(value) {
   }
 }
 
-const cardInput = document.querySelector(".input-field");
+function showColor(selector) {
+  const image = document.querySelector(selector);
+  image.classList.add("active");
+}
 
-cardInput.addEventListener("input", (e) => {
-  e.preventDefault();
-  const value = cardInput.value.split("").map(Number);
+function applyBlackWhite() {
+  const allImages = document.querySelectorAll(".bank");
+  Array.from(allImages).forEach((element) => {
+    element.classList.remove("active");
+  });
+}
 
-  if (value.length > 1) {
-    chooseCard(value);
-  } else {
-    applyBlackWhite();
-  }
-});
+function hideAnswer() {
+  successField.classList.remove("show_answer");
+  failureField.classList.remove("show_answer");
+}

@@ -1,6 +1,4 @@
-import { applyBlackWhite } from "./DOM_connection.js";
-
-function controlCard(arr) {
+export default function controlCard(arr) {
   const controlNum = arr.pop();
 
   const dubledNumbers = [];
@@ -29,26 +27,5 @@ function controlCard(arr) {
   const sum = result.reduce((acc, cur) => acc + cur);
   const remainds = 10 - (sum % 10);
 
-  if (remainds === controlNum) {
-    return true;
-  } else {
-    return false;
-  }
+  return remainds === controlNum;
 }
-
-const cardInput = document.querySelector(".input-field");
-const checkBtn = document.querySelector(".btn");
-
-checkBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  const cardNumber = cardInput.value.split("").map(Number);
-  if (controlCard(cardNumber)) {
-    alert("Card is valid");
-    cardInput.value = "";
-    applyBlackWhite();
-  } else {
-    alert("Card isn't valid");
-    cardInput.value = "";
-    applyBlackWhite();
-  }
-});

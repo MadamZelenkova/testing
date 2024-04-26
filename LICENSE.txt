@@ -16,3 +16,8 @@ Discover</a> иконка от <a target="_blank" href="https://icons8.com">Icon
 
 <a target="_blank" href="https://icons8.com/icon/13609/jcb">JCB</a>
  иконка от <a target="_blank" href="https://icons8.com">Icons8</a>
+
+ <a href="https://www.flaticon.com/ru/free-icons/" title="верный иконки">Верный иконки от Octopocto - Flaticon</a>
+
+ <a href="https://www.flaticon.com/ru/free-icons/" title="ложный иконки">Ложный иконки от Octopocto - Flaticon</a>
+ 

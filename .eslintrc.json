@@ -3,11 +3,16 @@
   "extends": ["eslint:recommended", "plugin:prettier/recommended"],
   "env": {
     "es6": true,
+    "node": true,
     "browser": true,
     "jest/globals": true
   },
   "parserOptions": {
-    "sourceType": "module"
+    "ecmaVersion": 2017,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "rules": {
     "no-unused-vars": "warn"
@@ -18,10 +23,6 @@
       "plugins": ["jest"],
       "extends": ["plugin:jest/recommended"],
       "rules": { "jest/prefer-expect-assertions": "off" }
-    },
-    {
-      "files": ["dist/", "coverage/", "doc/", "webpack.*.js"],
-      "rules": { "no-console": "off", "no-alert": "off" }
     }
   ]
 }
