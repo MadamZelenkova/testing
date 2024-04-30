@@ -7,7 +7,7 @@
     "build": "webpack --config webpack.prod.js",
     "lint": "eslint .",
     "e2e": "jest --testPathPattern=./e2e/ -- runInBand",
-    "test": "jest"
+    "test": "jest --testPathPattern=./src/"
   },
   "repository": "git@github.com:MadamZelenkova/testing.git",
   "author": "Zelenkova <e.valerevna.turova@yandex.ru>",
